@@ -98,8 +98,38 @@ We can also do comparisons in R:
 0.1 == 0.1
 ```
 
+## Project Management With RStudio
+
+* create a new RStudio project and initialize a git repo, 
+* but I didn’t talk in a ton of details about projects and didn’t use ProjectTemplate
 
 ## Variables and assignment
 
+* skip vectorization & managing your environment 
+
+## R Packages
+
+* Quiz 1 
 
 
+## Data Structures (only creating vectors with c())
+* Skipped most of Data Structures, but did cover creating vectors with c()
+
+## Dataframes 
+
+
+Kwoo: 
+
+I recently taught a morning of R and did something similar. I was teaching to mostly novices and I wanted to make sure I got to plotting by the end of the morning, so this is what I did:
+
+* Covered most of the Intro lesson except the “Vectorization” section
+   * Before variables & assignment I did a little of the Project Management section — had them create a new RStudio project and initialize a git repo, but I didn’t talk in a ton of details about projects and didn’t use ProjectTemplate
+   * Then I went back to the intro, created a script and explained what that was, and continued with variables and assignment, writing all commands in the script and sending them to the console as I went
+* Skipped the Seeking Help section but covered some of the contents at various other points
+* Skipped most of Data Structures, but did cover creating vectors with c()
+* Skipped most of Exploring Data Frames until the “Realistic example” section, then adlibbed a little about what data frames are
+* Condensed the Subsetting lesson and didn’t cover factor, matrix, or list subsetting.
+* Went through the Creating Publication-Quality Graphics lesson, which took less than the estimated 1:20 so I threw in some additional material on the fly (box plots, facet_grid, how to save plots).
+* Basically I avoided lists and matrices completely, which seemed reasonable for a novice audience. I checked in midway through with a makeshift poll in the etherpad, and most people said the pace was good. A few thought it was too slow and no one thought it was too fast.
+
+There was a second half-day of R that I wasn't there for, so I'm not sure what they got through in that session.
