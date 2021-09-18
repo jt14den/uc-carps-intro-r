@@ -11,5 +11,20 @@ output:
 
 ## Motivation 
 
-* Research is a multistep process
-* 
+* Research is a multistage process
+* We will begin with raw data, perform exploratory analyses, and learn how to plot results graphically. 
+* This example starts with a dataset from gapminder.org containing population information for many countries through time. 
+* By the end of these lessons you will be able to do things like plot the populations for all of these countries in under a minute!
+
+
+## Setup 
+
+* Do you have RStudio & R installed? 
+
+* [Download and install the latest version of R here](https://www.r-project.org/)
+* [Download and install RStudio here](https://www.rstudio.com/)
+
+## Intro to RStudio 
+
+![Rstudio](https://swcarpentry.github.io/r-novice-gapminder/fig/01-rstudio.png)
+
