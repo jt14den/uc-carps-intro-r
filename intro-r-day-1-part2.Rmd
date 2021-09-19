@@ -9,13 +9,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 
-## Data Frames and Subsetting
+## Data Frames and Subsetting  
 
 Part 2 of the workshop. Start at 'Realsitic Example' <https://swcarpentry.github.io/r-novice-gapminder/05-data-structures-part2/index.html#realistic-example>
 
 We are going to use the datafile that you downloaded into your project data folder.
 
-There are at least three different ways to read in data:
+###There are at least three different ways to read in data:
 
 
 1) read the file from your data folder
@@ -40,3 +40,13 @@ gapminder <- read.csv("https://raw.githubusercontent.com/swcarpentry/r-novice-ga
 Lasty, if you have a file type you're not sure about (SAS, SPSS, etc) you can use the 'Import Dataset'from the RStudio interface.
 
 ![Import Dataset interface](images/data-import.jpg)
+
+## Examine your dataset using the str() function
+
+**str()** allows you to get a compact look at the layout of your dataset 
+
+```{r}
+str(gapminder)
+
+```
+ 
