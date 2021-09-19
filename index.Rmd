@@ -98,22 +98,145 @@ We can also do comparisons in R:
 0.1 == 0.1
 ```
 
-## Project Management With RStudio
+## Project Management: RStudio
 
-* create a new RStudio project and initialize a git repo, 
-* but I didn’t talk in a ton of details about projects and didn’t use ProjectTemplate
+* The scientific process is naturally incremental, and many projects start life as random notes, some code, then a manuscript, and eventually everything is a bit mixed together.
+* Projects can get really messy:
+
+![](https://swcarpentry.github.io/r-novice-gapminder/fig/bad_layout.png)
+* A good project layout will ultimately make your life easier:
+  * It will help ensure the integrity of your data;
+  * It makes it simpler to share your code with someone else (a lab-mate, collaborator, or supervisor);
+  * It allows you to easily upload your code with your manuscript submission;
+  * It makes it easier to pick the project back up after a break.
+* One of the most powerful and useful aspects of RStudio is its project management functionality. 
+* We’ll be using this today to create a self-contained, reproducible project.
+
+### Challenge 1: Creating a self-contained project
+We’re going to create a new project in RStudio:
+
+1. Click the “File” menu button, then “New Project”.
+1. Click “New Directory”.
+1. Click “New Project”.
+1. Type in the name of the directory to store your project, e.g. “my_project”.
+1. If available, select the checkbox for “Create a git repository.”
+1. Click the “Create Project” button.
+
+* simplest way to open rstudio and a project is thru your file system by double clicking on the `.Rproj` file in your poject folder. 
+
+### Challenge 2: Opening an RStudio project through the file system
+1. Exit RStudio.
+1. Navigate to the directory where you created a project in Challenge 1.
+1. Double click on the .Rproj file in that directory.
+
+* now we have our project set up we can create an R script! 
+* Go to <kbd>File</kbd><kbd>New File</kbd><kbd>R Script</kdb>
+* ok who can tell me what a R Script is for? 
+* yes, we write our R code in it and it lets us run that code in a few ways
+* we save our code in the file, etc. 
+* let's add some code and learn how to use R Scripts in RStudio
 
 ## Variables and assignment
 
-* skip vectorization & managing your environment 
+* We can store values in variables using the assignment operator `<-`, like this:
+
+```{r}
+x <- 1/40
+```
+
+* note that it doesn't print anything out to the console.
+* stored it for later in something called a **variable**. `x` now contains the value 0.025:
+
+```{r}
+x
+```
+
+* the stored value is a decimal approximation of this fraction called a floating point number.
+* did you notice anything change in the RStudio interface when we saved the variable? 
+  * type into the chat what you noticed
+* Yes, under the Environment tab on the right we see `x` was added with it's stored values
+* We can use our variable in a function
+
+```{r}
+log(x)
+```
+
+* Notice also that variables can be reassigned:
+
+```{r}
+x <- 100
+```
+
+* x used to contain the value 0.025 and now it has the value 100.
+
+* Assignment values can contain the variable being assigned to, like so:
+
+
+```{r}
+x <- x + 1 #notice how RStudio updates its description of x on the top right tab
+y <- x * 2
+```
+
+* The right hand side of the assignment can be any valid R expression. 
+* The right hand side is fully evaluated before the assignment occurs.
+* Variable names: 
+  * Can contain letters, numbers, underscores and periods but no spaces. 
+  * They must start with a letter or a period followed by a letter (they cannot start with a number nor an underscore). 
+  * **Variables beginning with a period are hidden variables**. 
+* Different people use different conventions for long variable names, these include:
+
+>periods.between.words
+>underscores_between_words
+>camelCaseToSeparateWords
+
+* What you use is up to you, but be consistent.
+
+It is also possible to use the = operator for assignment:
+
+```{r}
+x = 1/40
+```
+
+* this is much less common in the R community. but be consistent 
 
 ## R Packages
 
-* Quiz 1 
+* how to load and a challenge to load packages we'll need today and tomorrow
+* It is possible to add functions to R by writing a package, or by obtaining a package written by someone else. 
+* As of this writing, there are over 10,000 packages available on CRAN (the comprehensive R archive network). 
+* R and RStudio have functionality for managing packages:
 
+* You can see what packages are installed by typing installed.packages()
+* You can install packages by typing install.packages("packagename"), where packagename is the package name, in quotes.
+* You can update installed packages by typing update.packages()
+* You can remove a package with remove.packages("packagename")
+* You can make a package available for use with library(packagename)
+
+* Packages can also be viewed, loaded, and detached in the Packages tab of the lower right panel in RStudio. 
+* Clicking on this tab will display all of the installed packages with a checkbox next to them. 
+* If the box next to a package name is checked, the package is loaded and if it is empty, the package is not loaded. 
+* Click an empty box to load that package and click a checked box to detach that package.
+
+* Packages can be installed and updated from the Package tab with the Install and Update buttons at the top of the tab.
+
+### Challenge 1
+
+Which of the following are valid R variable names?
+
+ ```{r, eval=FALSE}
+min_height
+max.height
+_age
+.mass
+MaxLength
+min-length
+2widths
+celsius2kelvin
+```
 
 ## Data Structures (only creating vectors with c())
 * Skipped most of Data Structures, but did cover creating vectors with c()
+* talk a bit about data types 
 
 ## Dataframes 
 
