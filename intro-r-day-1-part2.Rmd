@@ -39,4 +39,4 @@ gapminder <- read.csv("https://raw.githubusercontent.com/swcarpentry/r-novice-ga
 
 Lasty, if you have a file type you're not sure about (SAS, SPSS, etc) you can use the 'Import Dataset'from the RStudio interface.
 
-![Import Dataset interface](data/data-import.jpg)
+![Import Dataset interface](images/data-import.jpg)
