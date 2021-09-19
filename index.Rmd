@@ -406,3 +406,24 @@ str(quiz_vector)
     functions:
 
 ## Dataframes
+
+* We said that columns in data.frames were collection of vectors
+* DF columns as individual vectors
+* let's show this by creating a data frame 
+
+```{r}
+df_example <- data.frame(another_vector, my_vector, quiz_vector)
+```
+
+* We can print out a data frame like we do variables
+
+```{r}
+df_example
+```
+* additionally in RStudio we can view the data frame in a separate tab in RStduio:
+
+```{r, eval=FALSE}
+View(df_example)
+```
+
+
