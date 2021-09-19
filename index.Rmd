@@ -426,4 +426,13 @@ df_example
 View(df_example)
 ```
 
+* You can also open this view in the environment pane by clicking on the data frame name
 
+* We can also look at the structure of the data frame with the `str` function: 
+
+```{r}
+str(df_example)
+```
+
+* note this shows you the name of the vectors in the data frame, their type and number of observations or rows
+* you can get the same info if we unfurl the arrow next to the data frame in the environment
