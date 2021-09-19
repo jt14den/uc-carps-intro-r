@@ -219,11 +219,13 @@ x = 1/40
 
 * Packages can be installed and updated from the Package tab with the Install and Update buttons at the top of the tab.
 
+Let's work thru some 
+
 ### Challenge 1
 
 Which of the following are valid R variable names?
 
- ```{r, eval=FALSE}
+```{r, eval=FALSE}
 min_height
 max.height
 _age
@@ -234,25 +236,77 @@ min-length
 celsius2kelvin
 ```
 
-## Data Structures (only creating vectors with c())
-* Skipped most of Data Structures, but did cover creating vectors with c()
-* talk a bit about data types 
+### Challenge 2
+
+What will be the value of each variable after each statement in the following program?
+
+```{r}
+mass <- 47.5
+age <- 122
+mass <- mass * 2.3
+age <- age - 20
+```
+
+### Challenge 3
+
+Run the code from the previous challenge, and write a command to compare mass to age. Is mass larger than age?
+
+### Challenge 5
+
+Install the following packages: ggplot2, plyr, gapminder
+
+
+## Data Structures 
+
+### Data types in R 
+
+* variables we create have types: 
+* we can find out this by using `typeof()`:
+
+```{r}
+typeof(x)
+```
+
+```{r}
+typeof(3.14)
+```
+
+* There are 5 main types: double, integer, complex, logical and character.
+
+```{r}
+typeof(1L) # The L suffix forces the number to be an integer, since by default R uses float numbers
+```
+
+```{r}
+typeof(TRUE)
+```
+
+```{r}
+typeof('bannana')
+```
+
+
+### Vectors 
+
+* Working with a single value is one thing, but in R we are typically working with collections of values in something like a speadsheet
+* R lets us put a column of values together in something called a `vector`
+* vectors in R are foundational 
+* Let’s meet this vector 
+* We can create a vector
+* I'll use the `c()` to create one
+
+```{r}
+my_vector <- c()
+my_vector
+```
+
+* A vector in R is an ordered list of things, with the special condition that everything in the vector must be the same basic data type. 
+* If you don’t choose the datatype in the vector function, it’ll default to logical; or, you can declare an empty vector of whatever type you like.
+
+```{r}
+another_vector <- vector(mode='character', length=3)
+another_vector
+```
 
 ## Dataframes 
 
-
-Kwoo: 
-
-I recently taught a morning of R and did something similar. I was teaching to mostly novices and I wanted to make sure I got to plotting by the end of the morning, so this is what I did:
-
-* Covered most of the Intro lesson except the “Vectorization” section
-   * Before variables & assignment I did a little of the Project Management section — had them create a new RStudio project and initialize a git repo, but I didn’t talk in a ton of details about projects and didn’t use ProjectTemplate
-   * Then I went back to the intro, created a script and explained what that was, and continued with variables and assignment, writing all commands in the script and sending them to the console as I went
-* Skipped the Seeking Help section but covered some of the contents at various other points
-* Skipped most of Data Structures, but did cover creating vectors with c()
-* Skipped most of Exploring Data Frames until the “Realistic example” section, then adlibbed a little about what data frames are
-* Condensed the Subsetting lesson and didn’t cover factor, matrix, or list subsetting.
-* Went through the Creating Publication-Quality Graphics lesson, which took less than the estimated 1:20 so I threw in some additional material on the fly (box plots, facet_grid, how to save plots).
-* Basically I avoided lists and matrices completely, which seemed reasonable for a novice audience. I checked in midway through with a makeshift poll in the etherpad, and most people said the pace was good. A few thought it was too slow and no one thought it was too fast.
-
-There was a second half-day of R that I wasn't there for, so I'm not sure what they got through in that session.
