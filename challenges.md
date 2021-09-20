@@ -62,7 +62,7 @@ Start by making a vector with the numbers 1 through 26. Multiply the vector by 2
 ## Challenge 8
 It’s good practice to also check the last few lines of your data and some in the middle. How would you do this?
 
-Searching for ones specifically in the middle isn’t too hard, but we could ask for a few lines at random. How would you code this?
+Searching for ones specifically in the middle isn’t too hard, but we could ask for a few lines at random. How would you code this? HINT: look for help on the function sample: `?sample`
 
 ### Solutions: 
 To check the last few lines it’s relatively simple as R already has a function for this:

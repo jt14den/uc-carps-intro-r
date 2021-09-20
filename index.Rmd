@@ -30,13 +30,24 @@ Passcode: 664202
 
 ### Guidelines
 
-* Zoom chat can be used to ask questions or provide comments or express difficulties during the lesson. Type “hand” in the chat, or type the question into the chat, or use a “raise hand”. To request assistance, message helper or indicate the red x "no" in the participants chat.
-* Helpers may continue to reply there or via zoom private chat as needed.
-* If necessary, helpers may temporarily move to a zoom breakout room with you to discuss in details using audio/screen sharing. You can return to the main session by leaving the breakout room.
-* You can participate in the polls during the lesson by clicking Zoom Participants Panel and clicking on yes/no.
-* For a single screen, it can be split to have the zoom window and the window where we'll be working, both open side by side.
-* Please rename yourself to add the Operating System (OS) after your name in zoom. e.g. Annajiat (Linux)
-* Having a Great Online Learning Experience: A Guide for Students, https://carpentries.org/blog/2020/04/great-online-learning-student
+-   Zoom chat can be used to ask questions or provide comments or
+    express difficulties during the lesson. Type "hand" in the chat, or
+    type the question into the chat, or use a "raise hand". To request
+    assistance, message helper or indicate the red x "no" in the
+    participants chat.
+-   Helpers may continue to reply there or via zoom private chat as
+    needed.
+-   If necessary, helpers may temporarily move to a zoom breakout room
+    with you to discuss in details using audio/screen sharing. You can
+    return to the main session by leaving the breakout room.
+-   You can participate in the polls during the lesson by clicking Zoom
+    Participants Panel and clicking on yes/no.
+-   For a single screen, it can be split to have the zoom window and the
+    window where we'll be working, both open side by side.
+-   Please rename yourself to add the Operating System (OS) after your
+    name in zoom. e.g. Annajiat (Linux)
+-   Having a Great Online Learning Experience: A Guide for Students,
+    <https://carpentries.org/blog/2020/04/great-online-learning-student>
 
 ## Icebreaker for class
 
@@ -96,12 +107,12 @@ If you want to cancel out of this, hit the <kbd>esc</kbd>.
 
 ## Math Functions
 
-* R has many built in mathematical functions. 
-* To call a function, we can type its name, followed by open and closing parentheses
+-   R has many built in mathematical functions.
+-   To call a function, we can type its name, followed by open and
+    closing parentheses
 
 ![Functions in
-R](https://science.nu/wp-content/uploads/2019/06/image-8.png) 
-
+R](https://science.nu/wp-content/uploads/2019/06/image-8.png)
 
 ```{r}
 sin(1)  # trigonometry functions
@@ -115,7 +126,7 @@ log(1)  # natural logarithm
 log10(10) # base-10 logarithm
 ```
 
-* Hey what if i want to add up some numbers?
+-   Hey what if i want to add up some numbers?
 
 ## Comparing things
 
@@ -153,12 +164,16 @@ We can also do comparisons in R:
 
 **A good project layout will ultimately make your life easier:**
 
-- It will help ensure the integrity of your data; 
-- It makes it simpler to share your code with someone else (a lab-mate, collaborator, or supervisor);
-- It allows you to easily upload your code with your manuscript submission; 
-- It makes it easier to pick the project back up after a break. 
-- One of the most powerful and useful aspects of RStudio is its project management functionality. 
-- We'll be using this today to create a self-contained, reproducible project.
+-   It will help ensure the integrity of your data;
+-   It makes it simpler to share your code with someone else (a
+    lab-mate, collaborator, or supervisor);
+-   It allows you to easily upload your code with your manuscript
+    submission;
+-   It makes it easier to pick the project back up after a break.
+-   One of the most powerful and useful aspects of RStudio is its
+    project management functionality.
+-   We'll be using this today to create a self-contained, reproducible
+    project.
 
 ### Challenge 1: Creating a self-contained project
 
@@ -182,7 +197,7 @@ We're going to create a new project in RStudio:
     Challenge 1.
 3.  Double click on the .Rproj file in that directory.
 
-## Creating an R Script 
+## Creating an R Script
 
 -   now we have our project set up we can create an R script!
 -   Go to <kbd>File</kbd><kbd>New File</kbd><kbd>R Script</kdb>
@@ -211,11 +226,15 @@ x
 
 -   the stored value is a decimal approximation of this fraction called
     a floating point number.
+
 -   did you notice anything change in the RStudio interface when we
     saved the variable?
+
     -   type into the chat what you noticed
+
 -   Yes, under the Environment tab on the right we see `x` was added
     with it's stored values
+
 -   We can use our variable in a function
 
 ```{r}
@@ -239,18 +258,23 @@ y <- x * 2
 ```
 
 -   The right hand side of the assignment can be any valid R expression.
+
 -   The right hand side is fully evaluated before the assignment occurs.
+
 -   Variable names:
+
     -   Can contain letters, numbers, underscores and periods but no
         spaces.
     -   They must start with a letter or a period followed by a letter
         (they cannot start with a number nor an underscore).
     -   **Variables beginning with a period are hidden variables**.
+
 -   Different people use different conventions for long variable names,
     these include:
 
--  periods.between.words underscores_between_words
--  camelCaseToSeparateWords
+-   periods.between.words underscores_between_words
+
+-   camelCaseToSeparateWords
 
 -   What you use is up to you, but be consistent.
 
@@ -273,8 +297,9 @@ x = 1/40
 -   R and RStudio have functionality for managing packages:
 -   You can see what packages are installed by typing
     `installed.packages()`
--   You can install packages by typing `install.packages("packagename")`,
-    where packagename is the package name, in quotes.
+-   You can install packages by typing
+    `install.packages("packagename")`, where packagename is the package
+    name, in quotes.
 -   You can update installed packages by typing `update.packages()`
 -   You can remove a package with `remove.packages("packagename")`
 -   You can make a package available for use with library(packagename)
@@ -428,7 +453,7 @@ str(quiz_vector)
     `complex` -\> `character`, where -\> can be read as are transformed
     into. You can try to force coercion against this flow using the as.
     functions:
-    
+
 ```{r}
 as.numeric(quiz_vector)
 ```
@@ -437,60 +462,387 @@ as.numeric(quiz_vector)
 quiz_vector <- as.numeric(quiz_vector)
 ```
 
-### Vectorized 
+### Vectorized
 
-* when you have vectors, you can run operations over all of them at once
-* like we can multiple 2 over each of our `quiz_vector` 
+-   when you have vectors, you can run operations over all of them at
+    once
+-   like we can multiple 2 over each of our `quiz_vector`
 
 ```{r}
 quiz_vector * 2
 ```
 
-* We can save that as a new vector
+-   We can save that as a new vector
 
 ```{r}
 quiz_double_vector <- quiz_vector * 2
 quiz_double_vector
 ```
 
-* this ability to run an operation over all elements in a vector is called vectorization
-* it's built into R and makes R very powerful because we don't have to write loops to do this
-* 
+-   this ability to run an operation over all elements in a vector is
+    called vectorization
+-   it's built into R and makes R very powerful because we don't have to
+    write loops to do this
+-   
 
 ## Dataframes
 
-* We said that columns in data.frames were collection of vectors
-* DF columns as individual vectors
-* let's show this by creating a data frame 
+-   We said that columns in data.frames were collection of vectors
+-   DF columns as individual vectors
+-   let's show this by creating a data frame
 
 ```{r}
 df_example <- data.frame(another_vector, my_vector, quiz_vector)
 ```
 
-* We can print out a data frame like we do variables
+-   We can print out a data frame like we do variables
 
 ```{r}
 df_example
 ```
-* additionally in RStudio we can view the data frame in a separate tab in RStduio:
+
+-   additionally in RStudio we can view the data frame in a separate tab
+    in RStduio:
 
 ```{r, eval=FALSE}
 View(df_example)
 ```
 
-* You can also open this view in the environment pane by clicking on the data frame name
+-   You can also open this view in the environment pane by clicking on
+    the data frame name
 
-* We can also look at the structure of the data frame with the `str` function: 
+-   We can also look at the structure of the data frame with the `str`
+    function:
 
 ```{r}
 str(df_example)
 ```
 
-* note this shows you the name of the vectors in the data frame, their type and number of observations or rows
-* you can get the same info if we unfurl the arrow next to the data frame in the environment
+-   note this shows you the name of the vectors in the data frame, their
+    type and number of observations or rows
+-   you can get the same info if we unfurl the arrow next to the data
+    frame in the environment
 
 ### Challenge 7
 
-Start by making a vector with the numbers 1 through 26. Multiply the vector by 2, and give the resulting vector names A through Z (hint: there is a built in vector called LETTERS)
+Start by making a vector with the numbers 1 through 26. Multiply the
+vector by 2, and give the resulting vector names A through Z (hint:
+there is a built in vector called LETTERS)
 
-* Break 
+-   Break
+
+## Terms
+
+**Factors:** the data objects which are used to categorize the data and
+store it as levels. They can store both strings and integers. They are
+useful in the columns which have a limited number of unique values.
+These would be used in datasets that have demographic data such as age,
+sex, political party, etc
+
+**Vectors**: Vector is a basic data structure in R.\
+- contains element of the same type. - Ttypehe data types can be
+logical, integer, double, character, complex or raw.
+
+A vector's type can be checked with the typeof() function.
+
+Another important property of a vector is its length. This is the number
+of elements in the vector and can be checked with the function length().
+
+## Data Frames and Subsetting
+
+Part 2 of the workshop. Start at 'Realsitic Example'
+<https://swcarpentry.github.io/r-novice-gapminder/05-data-structures-part2/index.html#realistic-example>
+
+We are going to use the datafile that you downloaded into your project
+data folder.
+
+### There are at least three different ways to read in data:
+
+1)  read the file from your data folder
+
+```{r}
+gapminder <- read.csv("data/gapminder_data.csv", stringsAsFactors = TRUE)
+```
+
+2)  download the file in-code and then read in
+
+```{r}
+download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/main/data/gapminder_data.csv", destfile = "data/gapminder_data.csv")
+
+gapminder <- read.csv("data/gapminder_data.csv", stringsAsFactors = TRUE)
+```
+
+3)  read directly from the internet
+
+```{r}
+gapminder <- read.csv("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/main/data/gapminder_data.csv", stringsAsFactors = TRUE)
+```
+
+Lasty, if you have a file type you're not sure about (SAS, SPSS, etc)
+you can use the 'Import Dataset'from the RStudio interface.
+
+![Import Dataset interface](images/data-import.jpg)
+
+## Examine your dataset using the str() and summary() functions
+
+**str()** or allows you to get a compact look at the layout or
+*structure* of your dataset
+
+```{r}
+str(gapminder)
+
+```
+
+**List out the column names**
+
+```{r}
+colnames(gapminder)
+```
+
+**summary(*object*)** is another way to examine your dataset. It gives
+you numeric, tabular, or descriptive summary of each column.
+
+```{r}
+summary(gapminder)
+```
+
+You can also summarize a column:
+
+```{r}
+head(summary(gapminder$country), n=15)
+```
+
+### Other functions you can use to examine data:
+
+(demo) typeof(object$column)
+
+```{r}
+typeof(gapminder$year)
+```
+
+Use **str()** on a column: **str(country\$year)**
+
+We can also interrogate the data frame for information about its
+dimensions; remembering that `str(gapminder)` said there were 1704
+observations of 6 variables in gapminder, what do you think the
+following will produce, and why?
+
+```{r}
+length(gapminder)  
+```
+
+### Get the number of Rows and Columns
+
+**nrow(gapminder)**
+
+**ncol(gapminder)**
+
+**dim(gapminder)** to get both rows and colums
+
+### Display the beginning or end of a dataset
+
+Recall from the shell lesson the head() and tail() functions
+
+```{r, eval=FALSE}
+head(gapminder)
+tail(gapminder)
+```
+
+## Subsetting your data
+
+### Subsetting Operators
+
+Why subset?
+
+**Elements can be accessed by their indices**
+
+**Remember: R starts at 1 (not 0) so the first index is 1**
+
+Try this: essentially get me the nth element
+
+```{r}
+head(gapminder[1])  
+```
+
+1st column
+
+And then:
+
+```{r}
+head(gapminder[1,1])   
+```
+
+1st column, first element
+
+**Multiple elements: accessing two or more columns**
+
+```{r}
+head(gapminder[c(1, 3)])   
+```
+
+### Slice all of a specific row
+
+```{r}
+gapminder[3, ]
+```
+
+### Slice all of a specific column
+
+```{r}
+head(gapminder[ , 3])
+```
+
+**Slice to access multiple consecutive columns**
+
+```{r}
+head(gapminder[1:4])
+```
+
+**Question: what happens if you ask for an index that doesn't exist?**\
+Try 
+
+```{r, eval=FALSE}
+gapminder[1:8]
+```
+
+
+**how would you check to see what the size of the dataset is?**
+
+```{r}
+dim(gapminder)
+```
+
+### Subsetting by name
+
+**create a subset of country, population and gdpPercap data**
+
+```{r}
+head(gapminder[c("country", "pop", "gdpPercap")])
+```
+
+I've been using the head() function to only display the first 10
+(default number) of rows.
+
+Another way to look at a section of the dataset is:
+
+```{r}
+gapminder[1:15,]
+```
+
+Explain the syntax example
+
+```{r, eval=FALSE}
+gapminder[1:3, 5]   
+
+gapminder[1:3, ]   
+```
+
+### Other ways to extract based on values
+
+```{r}
+gapminder[gapminder$lifeExp > 80, ]
+```
+
+But you won't see the countries, so
+
+```{r}
+gapminder[gapminder$lifeExp > 80, 1:5]
+```
+
+or to get all the columns
+
+```{r}
+gapminder[gapminder$lifeExp > 80,]
+```
+
+### Extract specific rows
+
+```{r}
+
+gapminder[c(1:9, 19:23),]
+```
+
+### Subset by logical operators:
+
+```{r}
+head(gapminder[gapminder$year == 1957,] )
+```
+
+### AND OR
+
+```{r}
+head(gapminder[gapminder$year > 1957 | gapminder$year < 1987, ])
+```
+
+or
+
+```{r}
+head(gapminder[gapminder$year %in% c(1957, 1987),])
+```
+
+```{r}
+head(gapminder[gapminder$year > 1957 | gapminder$year < 1987 | gapminder$lifeExp < 60 , ])
+```
+
+### Save subset as data frame 
+
+**Right now these subset only print to the screen, save as a separate frame**
+
+```{r}
+mySlice <- gapminder[gapminder$year > 1957 | gapminder$year < 1987 | gapminder$lifeExp < 60 , ]  
+```
+
+### Adding or Removing columns
+
+Up to now we have been displaying slices of a dataframe, gapminder, not
+actually adding or removing columns. Acting on our dataframe doesn't
+change the original data so it is possible to add or delete without
+impacting your oridinal dataset. 
+
+### Add a column
+
+```{r}
+medianAge <- gapminder$lifeExp
+
+# this one dosn't work
+# cbind(gapminder, medianAge)
+
+gapminder <- cbind(gapminder, medianAge)
+
+colnames(gapminder)
+```
+
+Another way to add a column - in this case a copy: 
+
+```{r}
+gapminder$medianAge <- gapminder$lifeExp
+```
+
+Tomorrow Maddi & Jamie will show you other ways to add columns using a dataframe manipulation tool called `dplyr`. 
+
+### Remove a column
+
+```{r}
+# this also didn't work as-is so I added gapminder <- 
+gapminder <- gapminder[ , -7]
+
+colnames(gapminder)
+```
+
+### Add a row
+
+```{r}
+newRow <-  gapminder[47, ]
+
+gapminder <- rbind(gapminder, newRow)
+
+tail(gapminder)
+```
+
+### Remove a row
+
+```{r}
+gapminder <- gapminder[-1705, ]
+
+tail(gapminder)
+```
