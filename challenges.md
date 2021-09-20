@@ -57,3 +57,12 @@ Install the following packages: `ggplot2`, `plyr`, `gapminder`
 ### Challenge 7
 
 Start by making a vector with the numbers 1 through 26. Multiply the vector by 2, and give the resulting vector names A through Z (hint: there is a built in vector called LETTERS)
+
+## Data Frames 
+## Challenge 8
+It’s good practice to also check the last few lines of your data and some in the middle. How would you do this?
+
+Searching for ones specifically in the middle isn’t too hard, but we could ask for a few lines at random. How would you code this?
+
+## Challenge 9
+Read the output of str(gapminder) again; this time, use what you’ve learned about factors, lists and vectors, as well as the output of functions like colnames and dim to explain what everything that str prints out for gapminder means. If there are any parts you can’t interpret, discuss with your neighbors!
