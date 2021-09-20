@@ -79,7 +79,7 @@ gapminder[sample(nrow(gapminder), 5), ]
 ```
 
 ## Challenge 9
-Read the output of str(gapminder) again; this time, use what you’ve learned about factors, lists and vectors, as well as the output of functions like colnames and dim to explain what everything that str prints out for gapminder means. If there are any parts you can’t interpret, discuss with your neighbors!
+Read the output of str(gapminder) again; this time, use what you’ve learned about factors and vectors, as well as the output of functions like colnames and dim to explain what everything that str prints out for gapminder means. If there are any parts you can’t interpret, discuss with your neighbors!
 
 ## Challenge 10
 
