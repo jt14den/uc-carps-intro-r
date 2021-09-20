@@ -64,5 +64,115 @@ It’s good practice to also check the last few lines of your data and some in t
 
 Searching for ones specifically in the middle isn’t too hard, but we could ask for a few lines at random. How would you code this?
 
+### Solutions: 
+To check the last few lines it’s relatively simple as R already has a function for this:
+
+```
+tail(gapminder)
+tail(gapminder, n = 15)
+```
+
+What about a few arbitrary rows just in case something is odd in the middle?
+
+```
+gapminder[sample(nrow(gapminder), 5), ]
+```
+
 ## Challenge 9
 Read the output of str(gapminder) again; this time, use what you’ve learned about factors, lists and vectors, as well as the output of functions like colnames and dim to explain what everything that str prints out for gapminder means. If there are any parts you can’t interpret, discuss with your neighbors!
+
+## Challenge 10
+
+ Fix each of the following common data frame subsetting errors:
+
+ 1. Extract observations collected for the year 1957
+
+    ```{r, eval=FALSE}
+    gapminder[gapminder$year = 1957,]
+    ```
+
+ 2. Extract all columns except 1 through to 4
+
+    ```{r, eval=FALSE}
+    gapminder[,-1:4]
+    ```
+
+ 3. Extract the rows where the life expectancy is longer the 80 years
+
+    ```{r, eval=FALSE}
+    gapminder[gapminder$lifeExp  80]
+    ```
+
+ 4. Extract the first row, and the fourth and fifth columns
+   (`continent` and `lifeExp`).
+
+    ```{r, eval=FALSE}
+    gapminder[1, 4, 5]
+    ```
+
+ 5. Advanced: extract rows that contain information for the years 2002
+    and 2007
+
+    ```{r, eval=FALSE}
+    gapminder[gapminder$year == 2002 | 2007,]
+    ```
+
+  ## Solution to challenge 10
+ 
+  Fix each of the following common data frame subsetting errors:
+ 
+  1. Extract observations collected for the year 1957
+ 
+     ```{r, eval=FALSE}
+     # gapminder[gapminder$year = 1957,]
+     gapminder[gapminder$year == 1957,]
+     ```
+ 
+  2. Extract all columns except 1 through to 4
+ 
+     ```{r, eval=FALSE}
+     # gapminder[,-1:4]
+     gapminder[,-c(1:4)]
+     ```
+ 
+  3. Extract the rows where the life expectancy is longer than 80 years
+ 
+     ```{r, eval=FALSE}
+     # gapminder[gapminder$lifeExp  80]
+     gapminder[gapminder$lifeExp  80,]
+     ```
+ 
+  4. Extract the first row, and the fourth and fifth columns
+    (`continent` and `lifeExp`).
+ 
+     ```{r, eval=FALSE}
+     # gapminder[1, 4, 5]
+     gapminder[1, c(4, 5)]
+     ```
+ 
+  5. Advanced: extract rows that contain information for the years 2002
+     and 2007
+ 
+      ```{r, eval=FALSE}
+      # gapminder[gapminder$year == 2002 | 2007,]
+      gapminder[gapminder$year == 2002 | gapminder$year == 2007,]
+      gapminder[gapminder$year %in% c(2002, 2007),]
+      ```
+
+ ## Challenge 11
+
+ 1. Why does `gapminder[1:20]` return an error? How does it differ from `gapminder[1:20, ]`?
+
+
+ 2. Create a new `data.frame` called `gapminder_small` that only contains rows 1 through 9
+ and 19 through 23. You can do this in one or two steps.
+
+  ## Solution to challenge 11
+ 
+  1.  `gapminder` is a data.frame so needs to be subsetted on two dimensions. `gapminder[1:20, ]` subsets the data to give the first 20 rows and all columns.
+ 
+  2. 
+ 
+  ```{r}
+  gapminder_small <- gapminder[c(1:9, 19:23),]
+  ```
