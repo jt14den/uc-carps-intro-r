@@ -80,4 +80,26 @@ tidy_gdp <- year_country_gdp %>% rename(gdp_per_capita = gdpPercap)
 
 ### Using the filter() function
 
-As the name suggests, filter out everything but the data you want
+As the name suggests, filter out everything but the data you want.  
+
+Using filter combined with select:  
+```
+year_country_gdp_euro <- gapminder %>% 
+  filter(continent == "Europe") %<% 
+  select(year, country, gdpPercap) 
+```
+
+Adding a filter for specific year: 
+```
+year_country_gdp_euro <- gapminder %>% 
+  filter(continent == "Europe", year == 2007) %<% 
+  select(year, country, gdpPercap) 
+```
+### Challenge 1  
+
+Write a single command (which can span multiple lines and includes pipes) that will produce a dataframe that has the **African** values for **lifeExp**, **country** and **year**, but not for the other Continents.
+How many rows does your data frame have, and why?
+
+
+### Using the group_by function  
+
