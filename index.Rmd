@@ -26,6 +26,18 @@ ZOOM:
 Meeting ID: 941 0857 4704\
 Passcode: 664202
 
+## Setup - communications
+
+### Guidelines
+
+* Zoom chat can be used to ask questions or provide comments or express difficulties during the lesson. Type “hand” in the chat, or type the question into the chat, or use a “raise hand”. To request assistance, message helper or indicate the red x "no" in the participants chat.
+* Helpers may continue to reply there or via zoom private chat as needed.
+* If necessary, helpers may temporarily move to a zoom breakout room with you to discuss in details using audio/screen sharing. You can return to the main session by leaving the breakout room.
+* You can participate in the polls during the lesson by clicking Zoom Participants Panel and clicking on yes/no.
+* For a single screen, it can be split to have the zoom window and the window where we'll be working, both open side by side.
+* Please rename yourself to add the Operating System (OS) after your name in zoom. e.g. Annajiat (Linux)
+* Having a Great Online Learning Experience: A Guide for Students, https://carpentries.org/blog/2020/04/great-online-learning-student
+
 ## Icebreaker for class
 
 ## Motivation
@@ -84,11 +96,28 @@ If you want to cancel out of this, hit the <kbd>esc</kbd>.
 
 ## Math Functions
 
-Hey what if i want to add up some numbers?
+* R has many built in mathematical functions. 
+* To call a function, we can type its name, followed by open and closing parentheses
 
 ![Functions in
-R](https://science.nu/wp-content/uploads/2019/06/image-8.png) \#\#
-Comparing things
+R](https://science.nu/wp-content/uploads/2019/06/image-8.png) 
+
+
+```{r}
+sin(1)  # trigonometry functions
+```
+
+```{r}
+log(1)  # natural logarithm
+```
+
+```{r}
+log10(10) # base-10 logarithm
+```
+
+* Hey what if i want to add up some numbers?
+
+## Comparing things
 
 We can also do comparisons in R:
 
@@ -121,14 +150,15 @@ We can also do comparisons in R:
 -   Projects can get really messy:
 
 ![](https://swcarpentry.github.io/r-novice-gapminder/fig/bad_layout.png)
-\* A good project layout will ultimately make your life easier: \* It
-will help ensure the integrity of your data; \* It makes it simpler to
-share your code with someone else (a lab-mate, collaborator, or
-supervisor); \* It allows you to easily upload your code with your
-manuscript submission; \* It makes it easier to pick the project back up
-after a break. \* One of the most powerful and useful aspects of RStudio
-is its project management functionality. \* We'll be using this today to
-create a self-contained, reproducible project.
+
+**A good project layout will ultimately make your life easier:**
+
+- It will help ensure the integrity of your data; 
+- It makes it simpler to share your code with someone else (a lab-mate, collaborator, or supervisor);
+- It allows you to easily upload your code with your manuscript submission; 
+- It makes it easier to pick the project back up after a break. 
+- One of the most powerful and useful aspects of RStudio is its project management functionality. 
+- We'll be using this today to create a self-contained, reproducible project.
 
 ### Challenge 1: Creating a self-contained project
 
@@ -151,6 +181,8 @@ We're going to create a new project in RStudio:
 2.  Navigate to the directory where you created a project in
     Challenge 1.
 3.  Double click on the .Rproj file in that directory.
+
+## Creating an R Script 
 
 -   now we have our project set up we can create an R script!
 -   Go to <kbd>File</kbd><kbd>New File</kbd><kbd>R Script</kdb>
@@ -179,15 +211,11 @@ x
 
 -   the stored value is a decimal approximation of this fraction called
     a floating point number.
-
 -   did you notice anything change in the RStudio interface when we
     saved the variable?
-
     -   type into the chat what you noticed
-
 -   Yes, under the Environment tab on the right we see `x` was added
     with it's stored values
-
 -   We can use our variable in a function
 
 ```{r}
@@ -211,22 +239,18 @@ y <- x * 2
 ```
 
 -   The right hand side of the assignment can be any valid R expression.
-
 -   The right hand side is fully evaluated before the assignment occurs.
-
 -   Variable names:
-
     -   Can contain letters, numbers, underscores and periods but no
         spaces.
     -   They must start with a letter or a period followed by a letter
         (they cannot start with a number nor an underscore).
     -   **Variables beginning with a period are hidden variables**.
-
 -   Different people use different conventions for long variable names,
     these include:
 
-> periods.between.words underscores_between_words
-> camelCaseToSeparateWords
+-  periods.between.words underscores_between_words
+-  camelCaseToSeparateWords
 
 -   What you use is up to you, but be consistent.
 
@@ -244,15 +268,15 @@ x = 1/40
     tomorrow
 -   It is possible to add functions to R by writing a package, or by
     obtaining a package written by someone else.
--   As of this writing, there are over 10,000 packages available on CRAN
+-   As of this writing, there are over 18,000 packages available on CRAN
     (the comprehensive R archive network).
 -   R and RStudio have functionality for managing packages:
 -   You can see what packages are installed by typing
-    installed.packages()
--   You can install packages by typing install.packages("packagename"),
+    `installed.packages()`
+-   You can install packages by typing `install.packages("packagename")`,
     where packagename is the package name, in quotes.
--   You can update installed packages by typing update.packages()
--   You can remove a package with remove.packages("packagename")
+-   You can update installed packages by typing `update.packages()`
+-   You can remove a package with `remove.packages("packagename")`
 -   You can make a package available for use with library(packagename)
 -   Packages can also be viewed, loaded, and detached in the Packages
     tab of the lower right panel in RStudio.
@@ -267,7 +291,7 @@ x = 1/40
 
 Let's work thru some
 
-### Challenge 1
+### Challenge 3
 
 Which of the following are valid R variable names?
 
@@ -282,7 +306,7 @@ min-length
 celsius2kelvin
 ```
 
-### Challenge 2
+### Challenge 4
 
 What will be the value of each variable after each statement in the
 following program?
@@ -294,14 +318,14 @@ mass <- mass * 2.3
 age <- age - 20
 ```
 
-### Challenge 3
-
-Run the code from the previous challenge, and write a command to compare
-mass to age. Is mass larger than age?
-
 ### Challenge 5
 
-Install the following packages: ggplot2, plyr, gapminder
+Run the code from the previous challenge, and write a command to compare
+`mass` to `age`. Is `mass` larger than `age`?
+
+### Challenge 6
+
+Install the following packages: `ggplot2`, `gapminder`
 
 ## Data Structures
 
@@ -404,6 +428,34 @@ str(quiz_vector)
     `complex` -\> `character`, where -\> can be read as are transformed
     into. You can try to force coercion against this flow using the as.
     functions:
+    
+```{r}
+as.numeric(quiz_vector)
+```
+
+```{r}
+quiz_vector <- as.numeric(quiz_vector)
+```
+
+### Vectorized 
+
+* when you have vectors, you can run operations over all of them at once
+* like we can multiple 2 over each of our `quiz_vector` 
+
+```{r}
+quiz_vector * 2
+```
+
+* We can save that as a new vector
+
+```{r}
+quiz_double_vector <- quiz_vector * 2
+quiz_double_vector
+```
+
+* this ability to run an operation over all elements in a vector is called vectorization
+* it's built into R and makes R very powerful because we don't have to write loops to do this
+* 
 
 ## Dataframes
 
@@ -436,3 +488,9 @@ str(df_example)
 
 * note this shows you the name of the vectors in the data frame, their type and number of observations or rows
 * you can get the same info if we unfurl the arrow next to the data frame in the environment
+
+### Challenge 7
+
+Start by making a vector with the numbers 1 through 26. Multiply the vector by 2, and give the resulting vector names A through Z (hint: there is a built in vector called LETTERS)
+
+* Break 

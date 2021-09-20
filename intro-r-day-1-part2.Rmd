@@ -18,7 +18,7 @@ Part 2 of the workshop. Start at 'Realsitic Example' <https://swcarpentry.github
 
 We are going to use the datafile that you downloaded into your project data folder.
 
-###There are at least three different ways to read in data:
+### There are at least three different ways to read in data:
 
 
 1) read the file from your data folder
@@ -28,14 +28,14 @@ gapminder <- read.csv("data/gapminder_data.csv", stringsAsFactors = TRUE)
 ```
 
 2) download the file in-code and then read in
-```{r}
+```{r, eval=FALSE}
 download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/main/data/gapminder_data.csv", destfile = "data/gapminder_data.csv")
 
 gapminder <- read.csv("data/gapminder_data.csv", stringsAsFactors = TRUE)
 ```
 
 3) read directly from the internet
-```{r}
+```{r, eval=FALSE}
 gapminder <- read.csv("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/main/data/gapminder_data.csv", stringsAsFactors = TRUE)
 ```
 
@@ -50,11 +50,10 @@ Lasty, if you have a file type you're not sure about (SAS, SPSS, etc) you can us
 
 ```{r}
 str(gapminder)
-
 ```
  
   
-**summary(*object*) is another way to examine your dataset. It gives you numeric, tabular, or descriptive summary of each column. 
+**summary(*object*)** is another way to examine your dataset. It gives you numeric, tabular, or descriptive summary of each column. 
 
 ```{r}
 summary(gapminder)
@@ -68,12 +67,13 @@ summary(gapminder$country)
 ```
 
 ### Other functions you can use to examine data: 
+
 (demo) 
 typeof(object$colum) 
    
 Use **str()** on a colum:   **str(country$year)**   
 
-We can also interrogate the data frame for information about its dimensions; remembering that str(gapminder) said there were 1704 observations of 6 variables in gapminder, what do you think the following will produce, and why?
+We can also interrogate the data frame for information about its dimensions; remembering that `str(gapminder)` said there were 1704 observations of 6 variables in gapminder, what do you think the following will produce, and why?
 
 ```{r}
 length(gapminder)  
@@ -85,7 +85,7 @@ length(gapminder)
 
 **ncol(gapminder)**  
 
-**dim(gapminder)**    to get both rows and colums   
+**dim(gapminder)** to get both rows and colums   
 
 
 ###  Display the beginning or end of a dataset  
@@ -107,30 +107,26 @@ Why subset?
 **Elements can be accessed by their indices**
 
 Try this:  essentially get me the nth element
-```{r}
 
-  head(gapminder[1])  
+```{r}
+head(gapminder[1])  
 ```
 
 1st column   
 
-  
 And then:  
 ```{r}
-  head(gapminder[1,1])   
+head(gapminder[1,1])   
 ```
 
 1st column, first element
-
-
 
 **Multiple elements:   accessing two or more columns**  
 ```{r}
 head(gapminder[c(1, 3)])   
 ```
  
- 
- ##Slice all of a specific row  
+## Slice all of a specific row  
  
 ```{r}
 gapminder[3, ]
@@ -141,14 +137,11 @@ gapminder[3, ]
 head(gapminder[ , 3])
 ```
 
-
- 
 **Slice to access multiple consecutive columns**  
 
 ```{r}
 head(gapminder[1:4])
 ```
-
 
 **Question:  what happens if you ask for an index that doesn't exist?**  
 
@@ -156,17 +149,15 @@ head(gapminder[1:4])
 
 dim(gapminder)
 
+###Subsetting by name: create a subset of country, population and gdpPercap data   
 
-###Subsetting by name: create a subset of country, population and gdpPercap data       
 ```{r}
 head(gapminder[c("country", "pop", "gdpPercap")])
 ```
 
-
 ###Factor subsetting:  subset by category (ie. race, sex, age, etc)
 
-There isn't a colum like this in gapminder but you may run into this with datasets that have demographic data.
-
+There isn't a column like this in gapminder but you may run into this with datasets that have demographic data.
 
 I've been using the head() function to only display the first 10 (default number) of rows.
 
@@ -189,23 +180,17 @@ gapminder[1:3, ]
 gapminder[gapminder$lifeExp > 80, ]
 ```
 
-
 But you won't see the countries, so  
 
 ```{r}
 gapminder[gapminder$lifeExp > 80, 1:5]
 ```
 
-  
-
 
 or  to get all the columns  
 ```{r}
 gapminder[gapminder$lifeExp > 80,]
 ```
-
-
-
 
 
 ##Extract specific rows   
@@ -216,15 +201,11 @@ gapminder[c(1:9, 19:23),]
 ```
 
 
-
-
-###Subset by logical operators:  
+### Subset by logical operators:  
 
 ```{r}
 gapminder[gapminder$year == 1957,] 
 ```
-
-
 
 ### AND  OR   
 
@@ -242,10 +223,6 @@ gapminder[gapminder$year %in% c(1957, 1987),]
 gapminder[gapminder$year > 1957 | gapminder$year < 1987 | gapminder$lifeExp < 60 , ]  
 ```
 
-
-
-
-
 ##Right now these subset only exists in memory, save as a separate frame  
 
 
@@ -253,9 +230,6 @@ gapminder[gapminder$year > 1957 | gapminder$year < 1987 | gapminder$lifeExp < 60
 mySlice <- gapminder[gapminder$year > 1957 | gapminder$year < 1987 | gapminder$lifeExp < 60 , ]  
 ```
 
+### Challange:  get in groups (or individually) and create a subset of the gapminder data  
 
-
-
-
-###Challange:  get in groups (or individually) and create a subset of the gapminder data  
 This will be used for next days plotting.
