@@ -281,7 +281,7 @@ mySlice <- gapminder[gapminder$year > 1957 | gapminder$year < 1987 | gapminder$l
 ### Adding or Removing columns
 Up to now we have been displaying slices of a dataframe, gapminder, not actually adding or removing columns. Acting on our dataframe doesn't change the original data so it is possible to add or delete without impacting your oridinal dataset
 
-**Adding a column
+### Add a column
 ```{r}
 medianAge <- gapminder$lifeExp
 
@@ -295,7 +295,7 @@ colnames(gapminder)
 
 
 
-** Removing a column
+### Remove a column
 
 ```{r}
 # this also didn't work as-is so I added gapminder <- 
@@ -304,7 +304,7 @@ gapminder <- gapminder[ , -7]
 colnames(gapminder)
 ```
 
-##  Add a row
+###  Add a row
 
 ```{r}
 newRow <-  gapminder[47, ]
@@ -316,7 +316,7 @@ tail(gapminder)
 
 
 
-## Remove a row
+### Remove a row
 
 ```{r}
 gapminder <- gapminder[-1705, ]
