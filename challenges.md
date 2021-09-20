@@ -54,11 +54,14 @@ Run the code from the previous challenge, and write a command to compare
 
 Install the following packages: `ggplot2`, `plyr`, `gapminder`
 
+## Vector & Data Frames - Breakout rooms 
+
+In breakout rooms, work in teams. Choose one person to share their screen and the other participants tell the person sharing their screen how to work through the examples. 
+
 ### Challenge 7
 
 Start by making a vector with the numbers 1 through 26. Multiply the vector by 2, and give the resulting vector names A through Z (hint: there is a built in vector called LETTERS)
 
-## Data Frames 
 ## Challenge 8
 It’s good practice to also check the last few lines of your data and some in the middle. How would you do this?
 

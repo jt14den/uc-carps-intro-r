@@ -49,7 +49,7 @@ Passcode: 664202
 -   Having a Great Online Learning Experience: A Guide for Students,
     <https://carpentries.org/blog/2020/04/great-online-learning-student>
 
-## Icebreaker for class
+* You can then ask each learner to share their name, pronouns, and institution or location verbally, or have them type it in the chat. On Zoom, learners can adjust their screen name to reflect their preferred name and pronouns.
 
 ## Motivation
 
@@ -127,6 +127,11 @@ log10(10) # base-10 logarithm
 ```
 
 -   Hey what if i want to add up some numbers?
+
+```{r}
+sum(1, 3, 4)
+```
+
 
 ## Comparing things
 
@@ -302,7 +307,7 @@ x = 1/40
     name, in quotes.
 -   You can update installed packages by typing `update.packages()`
 -   You can remove a package with `remove.packages("packagename")`
--   You can make a package available for use with library(packagename)
+-   You can make a package available for use with `library(packagename)`
 -   Packages can also be viewed, loaded, and detached in the Packages
     tab of the lower right panel in RStudio.
 -   Clicking on this tab will display all of the installed packages with
@@ -314,11 +319,11 @@ x = 1/40
 -   Packages can be installed and updated from the Package tab with the
     Install and Update buttons at the top of the tab.
 
-Let's work thru some
+Let's work through some challenges: 
 
 ### Challenge 3
 
-Which of the following are valid R variable names?
+Which of the following are valid R variable names? (Add a plus after the correct answer(s))
 
 ```{r, eval=FALSE}
 min_height
@@ -334,7 +339,7 @@ celsius2kelvin
 ### Challenge 4
 
 What will be the value of each variable after each statement in the
-following program?
+following program? (try guessing before running in R yourself)
 
 ```{r}
 mass <- 47.5
@@ -480,10 +485,34 @@ quiz_double_vector
 ```
 
 -   this ability to run an operation over all elements in a vector is
-    called vectorization
+    called **vectorization**
 -   it's built into R and makes R very powerful because we don't have to
     write loops to do this
--   
+
+### Series & sequences
+
+* in R we can create a sequence by using the `:` operation 
+* it means create a vector from the first number to the next by an increment of 1
+
+```{r}
+1:5
+```
+
+* we can save this out as a vector in our environment:
+
+```{r}
+series_vec <- 1:5
+```
+
+
+* if we want to control the step in our sequence, we can use the R funciton `seq`
+
+```{r}
+seq(2, 10, 2)
+```
+
+* this means i want a sequence from 2 to 10 by 2
+* we can assign this to a variable as well
 
 ## Dataframes
 
@@ -522,13 +551,6 @@ str(df_example)
     type and number of observations or rows
 -   you can get the same info if we unfurl the arrow next to the data
     frame in the environment
-
-### Challenge 7
-
-Start by making a vector with the numbers 1 through 26. Multiply the
-vector by 2, and give the resulting vector names A through Z (hint:
-there is a built in vector called LETTERS)
-
 -   Break
 
 ## Terms
@@ -846,3 +868,130 @@ gapminder <- gapminder[-1705, ]
 
 tail(gapminder)
 ```
+
+## Vector & Data Frames - Breakout room 
+
+In breakout rooms, work in teams. Choose one person to share their screen and the other participants tell the person sharing their screen how to work through the examples. 
+
+### Challenge 7
+
+Start by making a vector with the numbers 1 through 26. Multiply the vector by 2, and give the resulting vector names A through Z (hint: there is a built in vector called LETTERS)
+
+## Challenge 8
+It’s good practice to also check the last few lines of your data and some in the middle. How would you do this?
+
+Searching for ones specifically in the middle isn’t too hard, but we could ask for a few lines at random. How would you code this? HINT: look for help on the function sample: `?sample`
+
+### Solutions: 
+To check the last few lines it’s relatively simple as R already has a function for this:
+
+```
+tail(gapminder)
+tail(gapminder, n = 15)
+```
+
+What about a few arbitrary rows just in case something is odd in the middle?
+
+```
+gapminder[sample(nrow(gapminder), 5), ]
+```
+
+## Challenge 9
+Read the output of str(gapminder) again; this time, use what you’ve learned about factors and vectors, as well as the output of functions like colnames and dim to explain what everything that str prints out for gapminder means. If there are any parts you can’t interpret, discuss with your neighbors!
+
+## Challenge 10
+
+ Fix each of the following common data frame subsetting errors:
+
+ 1. Extract observations collected for the year 1957
+
+    ```{r, eval=FALSE}
+    gapminder[gapminder$year = 1957,]
+    ```
+
+ 2. Extract all columns except 1 through to 4
+
+    ```{r, eval=FALSE}
+    gapminder[,-1:4]
+    ```
+
+ 3. Extract the rows where the life expectancy is longer the 80 years
+
+    ```{r, eval=FALSE}
+    gapminder[gapminder$lifeExp  80]
+    ```
+
+ 4. Extract the first row, and the fourth and fifth columns
+   (`continent` and `lifeExp`).
+
+    ```{r, eval=FALSE}
+    gapminder[1, 4, 5]
+    ```
+
+ 5. Advanced: extract rows that contain information for the years 2002
+    and 2007
+
+    ```{r, eval=FALSE}
+    gapminder[gapminder$year == 2002 | 2007,]
+    ```
+
+## Solution to challenge 10
+ 
+Fix each of the following common data frame subsetting errors:
+ 
+1. Extract observations collected for the year 1957
+ 
+```{r, eval=FALSE}
+     # gapminder[gapminder$year = 1957,]
+     gapminder[gapminder$year == 1957,]
+```
+ 
+2. Extract all columns except 1 through to 4
+
+```{r, eval=FALSE}
+     # gapminder[,-1:4]
+     gapminder[,-c(1:4)]
+```
+ 
+3. Extract the rows where the life expectancy is longer than 80 years
+ 
+```{r, eval=FALSE}
+     # gapminder[gapminder$lifeExp  80]
+     gapminder[gapminder$lifeExp  80,]
+```
+ 
+4. Extract the first row, and the fourth and fifth columns
+    (`continent` and `lifeExp`).
+ 
+```{r, eval=FALSE}
+     # gapminder[1, 4, 5]
+     gapminder[1, c(4, 5)]
+```
+ 
+5. Advanced: extract rows that contain information for the years 2002
+     and 2007
+ 
+```{r, eval=FALSE}
+      # gapminder[gapminder$year == 2002 | 2007,]
+      gapminder[gapminder$year == 2002 | gapminder$year == 2007,]
+      gapminder[gapminder$year %in% c(2002, 2007),]
+```
+
+## Challenge 11
+
+ 1. Why does `gapminder[1:20]` return an error? How does it differ from `gapminder[1:20, ]`?
+
+
+ 2. Create a new `data.frame` called `gapminder_small` that only contains rows 1 through 9
+ and 19 through 23. You can do this in one or two steps.
+
+## Solution to challenge 11
+ 
+  1.  `gapminder` is a data.frame so needs to be subsetted on two dimensions. `gapminder[1:20, ]` subsets the data to give the first 20 rows and all columns.
+ 
+  2. 
+ 
+  ```{r}
+  gapminder_small <- gapminder[c(1:9, 19:23),]
+  ```
+
