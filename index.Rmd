@@ -7,6 +7,8 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+* **[Day 1 notes](intro-r-day1.html)**
+
 ## Data frame manipulation with dplyr
 <https://swcarpentry.github.io/r-novice-gapminder/13-dplyr/index.html>
 
