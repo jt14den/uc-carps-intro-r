@@ -1,6 +1,14 @@
 ---
 title: 'Intro to R: Day 2 Part 1'
-output: html_document
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    df_print: paged
+    code_download: true
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r setup, include=FALSE}
@@ -28,13 +36,13 @@ mean(gapminder[gapminder$continent == "Americas", "gdpPercap"])
 
 ## the **dplyr** package
 
-###The five most commonly used functions, and **%>%**    
+### The five most commonly used functions, and **%>%**    
 
-* select() 
-* filter() 
-* groub_by() 
-* summarize() 
-* mutate() 
+* `select()` 
+* `filter()` 
+* `groub_by()` 
+* `summarize()` 
+* `mutate()` 
 
 ### Installing dplyr package  
 
@@ -60,7 +68,6 @@ head(select(gapminder, year, country, gdpPercap))
 ```
 
 
-
 Select columns and save to a new dataframe   
 
 ```{r}
@@ -72,7 +79,6 @@ year_country_gdp <- select(gapminder, year, country, gdpPercap)
 ```{r}
 smaller_gapminder_data <- select(gapminder, -continent)
 ```
-
 
 
 ### Removing a column using **dplyr** and **pipes (%>%)**  
@@ -106,12 +112,6 @@ year_country_gdp_euro <- gapminder %>%
   filter(continent == "Europe", year == 2007) %>% 
   select(year, country, gdpPercap) 
 ```
-
-### Challenge 1  
-
-Write a single command (which can span multiple lines and includes pipes) that will produce a dataframe that has the **African** values for **lifeExp**, **country** and **year**, but not for the other Continents.
-How many rows does your data frame have, and why?
-
 
 ### Using the group_by function  
 
@@ -148,12 +148,6 @@ syntax: arrange(variable)
 Use desc() within arrange() for reverse order
 
 syntax:  arrange(desc(variable))
-
-
-### Challenge 2  
-- Calculate the average life expectancy per country. 
-- Which has the longest average life expectancy and which has the shortest average life expectancy?  
-
 
 ## The group_by() functins allows us to group by multiple variables.  
 
@@ -248,7 +242,9 @@ gdp_pop_bycontinents_byyear_above25 <- gapminder %>%
       mean_gdp_billion = mean(gdp_billion),
       sd_gdp_billion = sd(gdp_billion))
 ```
+
 **One more example:**
+
 ```{r}
 gdp_future_bycontinents_byyear_high_lifeExp <- gapminder %>%
   mutate(gdp_futureExpectation = ifelse(lifeExp > 40, gdpPercap * 1.5, gdpPercap)) %>%
@@ -257,3 +253,9 @@ gdp_future_bycontinents_byyear_high_lifeExp <- gapminder %>%
             mean_gdpPercap_expected = mean(gdp_futureExpectation))
 ```
 
+## Challenges 
+
+Ok, we'll now go into break out roooms to solve the following challenges. When you are in the break out room, choose one person to share their screen and the rest of the room will work through the challenges together. Come off mic and share video if you are able for this exercise. 
+
+* [Dpylr Challenges](dplyr_challenges.html)
+* [Dplyr Challenges with solutions](dplyr_challenges_solutions.html)
