@@ -1,5 +1,5 @@
 ---
-title: "dply_challenges"
+title: "dply Challenges with Solutions"
 output: html_document
 ---
 
@@ -16,12 +16,12 @@ gapminder <- read.csv("data/gapminder_data.csv", stringsAsFactors = TRUE)
 
 ## dplyr challenges
 
-In breakout rooms of 3-4, work through these problems as a team. Choose one person to share their screen and the others in the room will help them solve the following challenges. 
+In breakout rooms of 3-4, work through these problems as a team. Choose one person to share their screen and the others in the room will help them solve the following challenges.   
 
 ### Challenge 1 
 Write a single command (which can span multiple lines and includes pipes) that will produce a dataframe that has the African [or any other country you pick] values for lifeExp, country and year, but not for the other Continents. How many rows does your data frame have, and why?
 
-```{r, echo=FALSE, results='hide'}
+```{r}
 gapminder %>%
   filter(continent == "Africa") %>%
   select(year, country, lifeExp) %>%
@@ -33,7 +33,7 @@ gapminder %>%
 Calculate the average life expectancy per country.
 Which has the longest average life expectancy and which has the shortest average life expectancy?  
 
-```{r, echo=FALSE, results='hide'}
+```{r}
 lifeExp_bycountry <- gapminder %>%
   group_by(country) %>%
   summarize(mean_lifeExp = mean(lifeExp))
@@ -46,7 +46,7 @@ lifeExp_bycountry %>%
 Create a new dataframe that has a new column with the ratio of life expectancy to GDP per capita. Keep only the country and ratio column. 
 **Hint:** think about the order of operations!   
 
-```{r, echo=FALSE, results='hide'}
+```{r}
 lifeExp_to_gdpPercap <- gapminder %>%
   mutate(lifeExp_ratio = lifeExp/gdpPercap) %>%
   select(country, lifeExp_ratio)
@@ -56,7 +56,7 @@ head(lifeExp_to_gdpPercap)
 
 **2nd answer:**
 
-```{r, echo=FALSE, results='hide', message=FALSE}
+```{r}
 gapminder %>%
   group_by(country) %>%
   summarize(lifeExp_ratio = lifeExp/gdpPercap) %>%
@@ -69,7 +69,7 @@ Hint: Use the dplyr functions arrange() and sample_n(), they have similar syntax
 
 *Note*  sample_n() samples __n__ rows from a table. 
 
-```{r, echo=FALSE, results='hide'}
+```{r}
 gapminder %>% 
   filter(year==2002) %>%
   group_by(continent) %>%
@@ -85,7 +85,7 @@ something with `filter()` and `count()`
 Filter for continent (your choice) AND (&) a life expectancy greater then 60
 Then count the observations for each group.
 
-```{r, echo=FALSE, results='hide'}
+```{r}
 gapminder %>%
   filter(continent == "Europe" & lifeExp > 60) %>%
   count(country) %>%

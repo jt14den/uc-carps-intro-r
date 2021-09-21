@@ -8,6 +8,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 * **[Day 1 notes](intro-r-day1.html)**
+* **[Challenges for Dplyr](dplyr_challenges.html)**
+* **[Challenges with Solutions for Dplyr](dplyr_challenges_solutions.html)**
 
 ## Data frame manipulation with dplyr
 <https://swcarpentry.github.io/r-novice-gapminder/13-dplyr/index.html>
