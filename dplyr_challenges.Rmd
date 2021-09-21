@@ -1,0 +1,89 @@
+---
+title: "dply_challenges"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#install.packages('dplyr')
+library('dplyr')
+
+gapminder <- read.csv("data/gapminder_data.csv", stringsAsFactors = TRUE)
+```
+
+## dplyr challenges
+
+### Challenge 1 
+Write a single command (which can span multiple lines and includes pipes) that will produce a dataframe that has the African [or any other country you pick] values for lifeExp, country and year, but not for the other Continents. How many rows does your data frame have, and why?
+```{r}
+gapminder %>%
+  filter(continent == "Africa") %>%
+  select(year, country, lifeExp)
+```
+
+
+### Challenge 2  
+Calculate the average life expectancy per country.
+Which has the longest average life expectancy and which has the shortest average life expectancy?  
+```{r}
+lifeExp_bycountry <- gapminder %>%
+  group_by(country) %>%
+  summarize(mean_lifeExp = mean(lifeExp))
+
+lifeExp_bycountry %>%
+  filter(mean_lifeExp == min(mean_lifeExp) | mean_lifeExp == max(mean_lifeExp))
+```
+
+### Challenge 3  
+Create a new dataframe that has a new column with the ratio of life expectancy to GDP per capita. Keep only the country and ratio column. 
+**Hint:** think about the order of operations!   
+
+```{r}
+lifeExp_to_gdpPercap <- gapminder %>%
+  mutate(lifeExp_ratio = lifeExp/gdpPercap) %>%
+  select(country, lifeExp_ratio)
+
+head(lifeExp_to_gdpPercap)
+```
+**2nd answer:**
+```{r}
+gapminder %>%
+  group_by(country) %>%
+  summarize(lifeExp_ratio = lifeExp/gdpPercap) %>%
+  head()
+```
+
+
+
+
+### Challenge 4  
+Calculate the average life expectancy in 2002 of 2 randomly selected countries for each continent. Then arrange the continent names in reverse order. 
+Hint: Use the dplyr functions arrange() and sample_n(), they have similar syntax to other dplyr functions.
+
+*Note*  sample_n() samples __n__ rows from a table. 
+
+```{r}
+gapminder %>% 
+  filter(year==2002) %>%
+  group_by(continent) %>%
+  sample_n(2) %>%
+  summarize(mean_lifeExp = mean(lifeExp)) %>%
+  arrange(desc(mean_lifeExp))
+```
+
+
+### Challenge 5 
+something with filter() and count()
+Filter for continent (your choice) AND (&) a life expectancy greater then 60
+Then count the observatins for each group.
+```{r}
+gapminder %>%
+  filter(continent == "Europe" & lifeExp > 60) %>%
+  count(country) %>%
+  head
+  
+```
+
