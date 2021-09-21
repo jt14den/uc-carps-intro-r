@@ -33,21 +33,24 @@ mean(gapminder[gapminder$continent == "Americas", "gdpPercap"])
 * mutate() 
 
 ### Installing dplyr package  
-```{r}
+
+```{r, eval=FALSE}
 install.packages('dplyr')
 ```
 
 ### Loading the package  
-```{r}
+
+```{r, message=FALSE}
 library("dplyr")
 ```
 
 
-### The select() function 
+### The `select()` function 
 
 ![](images/13-dplyr-fig1.png)
 
 Select columns: 
+
 ```{r}
 head(select(gapminder, year, country, gdpPercap))
 ```
@@ -55,6 +58,7 @@ head(select(gapminder, year, country, gdpPercap))
 
 
 Select columns and save to a new dataframe   
+
 ```{r}
 year_country_gdp <- select(gapminder, year, country, gdpPercap)
 ```
@@ -91,8 +95,6 @@ year_country_gdp_euro <- gapminder %>%
   filter(continent == "Europe") %>% 
   select(year, country, gdpPercap) 
 ```
-
-
 
 Adding a filter for specific year: 
 ```{r}
@@ -152,6 +154,7 @@ syntax:  arrange(desc(variable))
 ## The group_by() functins allows us to group by multiple variables.  
 
 Looking at an earlier example:  
+
 ```{r}
 gapminder %>% 
   group_by(continent) %>% 
