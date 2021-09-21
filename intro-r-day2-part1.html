@@ -255,6 +255,14 @@ str(gapminder %&gt;% group_by(continent)) </code></pre>
 <pre><code>gdp_bycontinents &lt;- gapminder %&gt;% 
   group_by(continent) %&gt;% 
   summarize(mean_gdpPercap = mean(gdpPercap))</code></pre>
+</div>
+<div id="the-arrange-function" class="section level2">
+<h2>the arrange() function</h2>
+<p>This <em>dplyr</em> function arranges the rows in a dataframe according to one or more variables from the dataframe.</p>
+<p>arrange() works on alphanumerics as well as numbers.</p>
+<p>syntax: arrange(variable)</p>
+<p>Use desc() within arrange() for reverse order</p>
+<p>syntax: arrange(desc(variable))</p>
 <div id="challenge-2" class="section level3">
 <h3>Challenge 2</h3>
 <ul>
@@ -263,8 +271,58 @@ str(gapminder %&gt;% group_by(continent)) </code></pre>
 </ul>
 </div>
 </div>
-<div id="section" class="section level2">
-<h2>_</h2>
+<div id="the-group_by-functins-allows-us-to-group-by-multiple-variables." class="section level2">
+<h2>The group_by() functins allows us to group by multiple variables.</h2>
+<p>Looking at an earlier example:</p>
+<pre><code>gapminder %&gt;% 
+  group_by(continent) %&gt;% 
+  summarize(mean_gdpPercap = mean(gdpPercap))</code></pre>
+<p>You are not limited to one group_by variable:</p>
+<pre><code>gapminder %&gt;% 
+  group_by(continent, year) %&gt;% 
+  summarize(mean_gdpPercap = mean(gdpPercap),
+      sd_gdpPercap = sd(gdpPercap),
+      mean_pop = mean(pop),
+      sd_pop = sd(pop))  </code></pre>
+</div>
+<div id="the-count-and-n-functions" class="section level2">
+<h2>The count() and n() functions</h2>
+<p><em>count()</em> counts the number of observations for each group</p>
+<pre><code>gapminder %&gt;% 
+  filter(year == 2002) %&gt;% 
+  count(continent, sort = TRUE) </code></pre>
+<p><em>sort:</em> If TRUE, will show the largest groups at the top.</p>
+<p><em>name:</em> The name of the new column in the output. If omitted, it will default to n. If there’s already a column called n, it will error, and require you to specify the name.</p>
+<p><em>n()</em> returns the number of observations in the current group <em>rather</em> than counting observations.</p>
+<pre><code>gapminder %&gt;% 
+  group_by(continent) %&gt;% 
+  summarize(sd_le = sd(lifeExp)/sqrt(n()))</code></pre>
+<p>You can probably see by now that the power of dplyr is the ability to chain several summary operations together.</p>
+<p>For example: minimum, maximum, mean and se for each continent’s per-country life-expectancy.</p>
+<pre><code>gapminder %&gt;% 
+  group_by(continent) %&gt;% 
+  summarize(
+    mean_le = mean(lifeExp),
+    min_le = min(lifeExp),
+    max_le = max(lifeExp),
+    sd_le = sd(lifeExp)) </code></pre>
+</div>
+<div id="using-the-mutate-function-to-create-new-variables" class="section level2">
+<h2>Using the mutate() function to create new variables</h2>
+<p>You can create new variables prior to or even after summarizing information with mutate().</p>
+<pre><code>gapminder %&gt;%
+    mutate(gdp_billion = gdpPercap*pop/10^9) %&gt;%
+    group_by(continent, year) %&gt;% 
+    summarize(
+      mean_gdpPercap = mean(gdpPercap),
+      sd_gdpPercap = sd(gdpPercap),
+      mean_pop = mean(pop),
+      sd_pop = sd(pop),
+      mean_gdp_billion = mean(gdp_billion),
+      sd_gdp_billion = sd(gdp_billion))</code></pre>
+</div>
+<div id="connect-mutate-with-logical-filtering-ifelse" class="section level2">
+<h2>Connect mutate with logical filtering: ifelse</h2>
 </div>
 
 

@@ -124,10 +124,93 @@ gdp_bycontinents <- gapminder %>%
   summarize(mean_gdpPercap = mean(gdpPercap))
 ```
 
+## the arrange() function  
+This *dplyr* function arranges the rows in a dataframe according to one or more variables from the dataframe.
+
+arrange() works on alphanumerics as well as numbers.
+
+syntax: arrange(variable)
+
+Use desc() within arrange() for reverse order
+
+syntax:  arrange(desc(variable))
+
+
 ### Challenge 2  
 - Calculate the average life expectancy per country. 
 - Which has the longest average life expectancy and which has the shortest average life expectancy?  
 
 
-_ 
-- 
+## The group_by() functins allows us to group by multiple variables.  
+
+Looking at an earlier example:  
+```
+gapminder %>% 
+  group_by(continent) %>% 
+  summarize(mean_gdpPercap = mean(gdpPercap))
+```
+
+You are not limited to one group_by variable: 
+```
+gapminder %>% 
+  group_by(continent, year) %>% 
+  summarize(mean_gdpPercap = mean(gdpPercap),
+      sd_gdpPercap = sd(gdpPercap),
+      mean_pop = mean(pop),
+      sd_pop = sd(pop))  
+```  
+
+
+## The count() and n() functions  
+
+*count()* counts the number of observations for each group  
+```
+gapminder %>% 
+  filter(year == 2002) %>% 
+  count(continent, sort = TRUE) 
+```
+*sort:* If TRUE, will show the largest groups at the top.  
+
+*name:* The name of the new column in the output. If omitted, it will default to n. If there's already a column called n, it will error, and require you to specify the name.  
+
+*n()* returns the number of observations in the current group *rather* than counting observations.
+
+```
+gapminder %>% 
+  group_by(continent) %>% 
+  summarize(sd_le = sd(lifeExp)/sqrt(n()))
+```
+
+You can probably see by now that the power of dplyr is the ability to chain several summary operations together.
+
+For example: minimum, maximum, mean and se for each continent's per-country life-expectancy.
+
+```
+gapminder %>% 
+  group_by(continent) %>% 
+  summarize(
+    mean_le = mean(lifeExp),
+    min_le = min(lifeExp),
+    max_le = max(lifeExp),
+    sd_le = sd(lifeExp)) 
+```
+
+## Using the mutate() function to create new variables
+
+You can create new variables prior to or even after summarizing information with mutate().
+
+```
+gapminder %>%
+    mutate(gdp_billion = gdpPercap*pop/10^9) %>%
+    group_by(continent, year) %>% 
+    summarize(
+      mean_gdpPercap = mean(gdpPercap),
+      sd_gdpPercap = sd(gdpPercap),
+      mean_pop = mean(pop),
+      sd_pop = sd(pop),
+      mean_gdp_billion = mean(gdp_billion),
+      sd_gdp_billion = sd(gdp_billion))
+```
+
+## Connect mutate with logical filtering: ifelse   
+
