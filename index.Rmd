@@ -19,6 +19,21 @@ knitr::opts_chunk$set(echo = TRUE)
 * **[Challenges for Dplyr](dplyr_challenges.html)**
 * **[Challenges with Solutions for Dplyr](dplyr_challenges_solutions.html)**
 
+## Workshop details
+
+Website: <https://ucsdlib.github.io/2021-09-13-uc-collab/>\
+Etherpad for series:
+<https://codimd.carpentries.org/fwkQLM2ZTuCRirtE16WjBQ?view>\
+Etherpad for R workshop:
+<https://pad.carpentries.org/UC-Carpentry-R-2021-09-20-concurrent>\
+Virtual minute feedback form:
+<https://docs.google.com/forms/d/e/1FAIpQLSdiyAxUE3o0WnWOq4LMfPbDPqlG0akkGwOSNMf6NkGnINnmfw/viewform>\
+ZOOM:
+<https://ucla.zoom.us/j/94108574704?pwd=ZytBclJnVlJ1bUkvRlM2ZERMYWdWQT09>\
+Meeting ID: 941 0857 4704\
+Passcode: 664202
+
+
 ## Data frame manipulation with dplyr
 <https://swcarpentry.github.io/r-novice-gapminder/13-dplyr/index.html>
 
@@ -252,6 +267,8 @@ gdp_future_bycontinents_byyear_high_lifeExp <- gapminder %>%
   summarize(mean_gdpPercap = mean(gdpPercap),
             mean_gdpPercap_expected = mean(gdp_futureExpectation))
 ```
+
+**Approx - 10:20am**
 
 ## Challenges 
 
