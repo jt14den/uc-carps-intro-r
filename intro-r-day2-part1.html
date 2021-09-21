@@ -238,7 +238,33 @@ mean(gapminder[gapminder$continent == &quot;Americas&quot;, &quot;gdpPercap&quot
 </div>
 <div id="using-the-group_by-function" class="section level3">
 <h3>Using the group_by function</h3>
+<p>Avoid error-prone repetitiveness. Rather then cutting and pasting the above code for each continent use the group_by function.</p>
+<pre><code>gapminder %&gt;% group_by(continent)
+
+str(gapminder %&gt;% group_by(continent)) </code></pre>
 </div>
+</div>
+<div id="using-the-summarize-function" class="section level2">
+<h2>Using the summarize function</h2>
+<p><em>group_by</em> is often used in conunction with <em>summarize()</em></p>
+<ul>
+<li>first split the data frame into multiple pieces with <em>group_by()</em><br />
+</li>
+<li>then pipe that data into other functions such as <em>mean()</em> or <em>sd()</em> within <em>summarize()</em></li>
+</ul>
+<pre><code>gdp_bycontinents &lt;- gapminder %&gt;% 
+  group_by(continent) %&gt;% 
+  summarize(mean_gdpPercap = mean(gdpPercap))</code></pre>
+<div id="challenge-2" class="section level3">
+<h3>Challenge 2</h3>
+<ul>
+<li>Calculate the average life expectancy per country.</li>
+<li>Which has the longest average life expectancy and which has the shortest average life expectancy?</li>
+</ul>
+</div>
+</div>
+<div id="section" class="section level2">
+<h2>_</h2>
 </div>
 
 

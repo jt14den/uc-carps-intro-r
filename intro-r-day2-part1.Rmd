@@ -103,3 +103,31 @@ How many rows does your data frame have, and why?
 
 ### Using the group_by function  
 
+Avoid error-prone repetitiveness. Rather then cutting and pasting the above code for each continent use the group_by function.
+
+```
+gapminder %>% group_by(continent)
+
+str(gapminder %>% group_by(continent)) 
+```
+
+## Using the summarize function  
+
+*group_by* is often used in conunction with *summarize()*
+
+- first split the data frame into multiple pieces with *group_by()*   
+- then pipe that data into other functions such as *mean()* or *sd()* within *summarize()*  
+
+``` 
+gdp_bycontinents <- gapminder %>% 
+  group_by(continent) %>% 
+  summarize(mean_gdpPercap = mean(gdpPercap))
+```
+
+### Challenge 2  
+- Calculate the average life expectancy per country. 
+- Which has the longest average life expectancy and which has the shortest average life expectancy?  
+
+
+_ 
+- 
