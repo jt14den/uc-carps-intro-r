@@ -21,7 +21,8 @@ Write a single command (which can span multiple lines and includes pipes) that w
 ```{r}
 gapminder %>%
   filter(continent == "Africa") %>%
-  select(year, country, lifeExp)
+  select(year, country, lifeExp) %>%
+  head
 ```
 
 
